@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http:/www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>사원 정보</h2>
+<table border="1" style="border-collapse: collapse;">
+    <thead style="background-color: royalblue; color: white;">
+    <tr>// 제목행
+        <th>사원 아이디</th>
+        <th>사원 이름</th>
+        <th>직책</th>
+        <th>상관 사원 번호</th>
+        <th>입사일</th>
+        <th>급여</th>
+        <th>성과급</th>
+        <th>부서번호</th>
+    </tr>
+    </thead>
+    <tbody> // 하나의 열을 찍음(반복문)
+    <tr th:each="emp : ${employees}"> // 적은 이름을 받음
+        <td th:text="${emp.empNO}"></td> // 클롬내용 넣으면서 뿌림
+        <td th:text="${emp.name}"></td> // $는 변수넣을 수 있음
+        <td th:text="${emp.job}"></td>
+        <td th:text="${emp.mgr}"></td>
+        <td th:text="${emp.date}"></td>
+        <td th:text="${emp.sal}"></td>
+        <td th:text="${emp.comm}"></td>
+        <td th:text="${emp.deptNO}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
